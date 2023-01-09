@@ -1,0 +1,58 @@
+<mat-dialog-content class="modal">
+    <div fxLayout="row">
+        <div fxFlex="80">
+            <h3 class="title-name">{{ data.nome }} - {{ data.cpf }}</h3>
+        </div>
+        <div fxFlex="20">
+            <p class="money">{{ data.conta.saldo| currency: 'R$' }}</p>
+        </div>
+    </div>  
+    <div fxLayout="row">
+        <div fxFlex="20">
+            <p class="descricao">Conta:</p>
+        </div>
+        <div fxFlex="25">
+            <p>{{ data.conta.numeroConta }}</p>
+        </div>
+        <div fxFlex="25">
+            <p class="descricao">Email:</p>
+        </div>
+        <div fxFlex="30">
+            <p>{{ data.usuario.email }}</p>
+        </div>
+    </div> 
+    <div fxLayout="row">
+        <div fxFlex="20">
+            <p class="descricao">CEP:</p>
+            <p class="descricao">Estado:</p>
+            <p class="descricao">Cidade:</p>
+            <p class="descricao">Rua:</p>
+            <p class="descricao">Tipo de Endereço:</p>
+            <p class="descricao">Número:</p>
+            <p class="descricao">Complemento:</p>
+        </div>
+        <div fxFlex="30"> 
+            <p>{{ data.endereco.cep }}</p>
+            <p>{{ data.endereco.estado }}</p>
+            <p>{{ data.endereco.cidade }}</p>
+            <p>{{ data.endereco.logradouro }}</p>
+            <p>{{ data.endereco.tipoEndereco }}</p>
+            <p>{{ data.endereco.numero }}</p>
+            <p>{{ data.endereco.complemento }}</p>
+        </div>
+        <div fxFlex="20">
+            <p class="descricao">Salário Mensal:</p>
+            <p class="descricao">Limite:</p>
+        </div>
+        <div fxFlex="30">
+            <p>{{ data.salario | currency: 'R$' }}</p>
+            <p>{{ data.conta.limite | currency: 'R$' }}</p>
+        </div>
+        <div fxFlex fxLayout="column" fxLayoutAlign="end end" style="margin-bottom: 3%;">
+            <mat-dialog-actions>
+                <button mat-button mat-dialog-close>Fechar</button>
+            </mat-dialog-actions>
+        </div>
+    </div>
+</mat-dialog-content>
+

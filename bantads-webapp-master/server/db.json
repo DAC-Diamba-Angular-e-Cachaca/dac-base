@@ -1,0 +1,71 @@
+{
+  "movimentacao": [
+    {
+      "id": 1,
+      "valorMovimentacao": 5000,
+      "dataHora": "01/01/2022",
+      "tipo": 1,
+      "origem": null,
+      "destino": null
+    },
+    {
+      "id": 2,
+      "valorMovimentacao": 350,
+      "dataHora": "06/01/2022",
+      "tipo": 2,
+      "origem": null,
+      "destino": null
+    },
+    {
+      "id": 3,
+      "valorMovimentacao": 1234.56,
+      "dataHora": "11/01/2022",
+      "tipo": 3,
+      "origem": null,
+      "destino": 2
+    },
+    {
+      "id": 4,
+      "valorMovimentacao": 789.01,
+      "dataHora": "23/01/2022",
+      "tipo": 3,
+      "origem": 3,
+      "destino": null
+    },
+    {
+      "id": 222,
+      "dataHora": "Sun Jul 24 2022 20:44:36 GMT-0300 (Horário Padrão de Brasília)",
+      "tipo": 1
+    },
+    {
+      "id": 0.8904906102364241,
+      "valorMovimentacao": 150,
+      "dataHora": "Sun Jul 24 2022 20:49:23 GMT-0300 (Horário Padrão de Brasília)",
+      "tipo": 1
+    },
+    {
+      "id": 0.2592744639873372,
+      "valorMovimentacao": 111,
+      "dataHora": "Sun Jul 24 2022 20:53:35 GMT-0300 (Horário Padrão de Brasília)",
+      "tipo": 1
+    },
+    {
+      "id": 0.6883822034748329,
+      "valorMovimentacao": 222,
+      "dataHora": "Sun Jul 24 2022 20:53:38 GMT-0300 (Horário Padrão de Brasília)",
+      "tipo": 2
+    },
+    {
+      "id": 0.2762929513746806,
+      "valorMovimentacao": 333,
+      "dataHora": "Sun Jul 24 2022 20:53:49 GMT-0300 (Horário Padrão de Brasília)",
+      "tipo": 3,
+      "destino": {
+        "numero": 354,
+        "saldo": 0,
+        "dataCriacao": "",
+        "limite": 0
+      }
+    }
+  ]
+}

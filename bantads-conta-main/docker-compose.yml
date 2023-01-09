@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  bantads-conta:
+    container_name: bantads-conta
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 5003:8080
+    networks:
+      - bantads-net
+
+networks:
+  bantads-net:
+    driver: bridge
+    external: true

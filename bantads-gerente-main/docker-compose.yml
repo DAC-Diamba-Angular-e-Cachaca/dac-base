@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  bantads-gerente:
+    container_name: bantads-gerente
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 5004:8080
+    networks:
+      - bantads-net
+
+networks:
+  bantads-net:
+    driver: bridge
+    external: true
+    name: bantads-net

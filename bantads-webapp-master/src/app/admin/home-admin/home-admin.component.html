@@ -1,0 +1,41 @@
+<h1 class="title">Gerentes</h1>
+
+<div fxLayout="row" fxLayoutAlign="center">
+  <div fxFlex="90">
+    <table mat-table [dataSource]="gerentes" class="mat-elevation-z8">
+      <div matColumnDef="nome" fx="">
+        <th mat-header-cell *matHeaderCellDef class="cell30"> Nome </th>
+        <td mat-cell *matCellDef="let element" class="cell30"> {{element.nome}} </td>
+      </div>
+      <div matColumnDef="quantidadeContas">
+        <th mat-header-cell *matHeaderCellDef class="cell10"> Qtd. Clientes </th>
+        <td mat-cell *matCellDef="let element" class="cell10"> {{element.quantidadeContas}} </td>
+      </div>
+      <div matColumnDef="saldoPositivo">
+        <th mat-header-cell *matHeaderCellDef class="cell15"> Total Saldo Positivo </th>
+        <td mat-cell *matCellDef="let element" class="cell15"> {{element.saldoPositivo}} </td>
+      </div>
+      <div matColumnDef="saldoNegativo">
+        <th mat-header-cell *matHeaderCellDef class="cell10"> Total Saldo Negativo </th>
+        <td mat-cell *matCellDef="let element" class="cell10"> {{element.saldoNegativo}} </td>
+      </div>
+      <div matColumnDef="acoes">
+          <th mat-header-cell *matHeaderCellDef class="class=cell30end"></th>
+          <td mat-cell *matCellDef="let element" class="cell30end">
+            <button mat-stroked-button color="primary" (click)="abrirModalGerente(element)">
+              <mat-icon >remove_red_eye</mat-icon>
+            </button>
+            <button mat-stroked-button class="button-grid" color="accent" title="Editar" alt="Editar" [routerLink]="['/admin/editar-gerente', element.id]">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-stroked-button class="button-grid" color="warn" title="Remover" alt="Remover" (click)="remover($event, element)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+      </div>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

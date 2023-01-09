@@ -1,0 +1,109 @@
+<mat-card>
+    <mat-grid-list cols="4"
+                   rowHeight="100px">
+        <mat-grid-tile> Conta Corrente: {{ conta.numeroConta }} </mat-grid-tile>
+        <mat-grid-tile> Gerente Responsável: {{ gerente.nome }} </mat-grid-tile>
+        <mat-grid-tile [style]="'color:' + (conta.saldo >= 0 ? 'black' : 'red')"> Saldo: {{ conta.saldo | currency: 'R$' }} </mat-grid-tile>
+        <mat-grid-tile> Limite: {{ conta.limite | currency: 'R$' }} </mat-grid-tile>
+    </mat-grid-list>
+</mat-card>
+
+<mat-card>
+
+    <form class="example-form">
+
+        <mat-accordion>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Depósito</mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <mat-form-field class="example-full-width"
+                                appearance="fill">
+                    <mat-label>Valor</mat-label>
+                    <input #valorDeposito
+                           matInput
+                           placeholder="Valor"
+                           type="text"
+                           currencyMask
+                           [options]="{
+                      prefix: 'R$ ',
+                      thousands: '.',
+                      decimal: ','
+                    }">
+                    <mat-error>O valor deve ser preenchido.</mat-error>
+                </mat-form-field>
+
+                <button mat-button
+                        (click)="depositar(valorDeposito.value)">
+                    <mat-icon aria-hidden="true">done_outline</mat-icon>
+                </button>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Saque</mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <mat-form-field class="example-full-width"
+                                appearance="fill">
+                    <mat-label>Valor</mat-label>
+                    <input #valorSaque
+                           matInput
+                           placeholder="Valor"
+                           currencyMask
+                           [options]="{
+                      prefix: 'R$ ',
+                      thousands: '.',
+                      decimal: ','
+                    }">
+                    <mat-error>O valor deve ser preenchido.</mat-error>
+                </mat-form-field>
+
+                <button mat-button
+                        (click)="sacar(valorSaque.value)">
+                    <mat-icon aria-hidden="true">done_outline</mat-icon>
+                </button>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Transferência</mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <mat-form-field class="example-full-width"
+                                appearance="fill">
+                    <mat-label>Conta Corrente de Destino</mat-label>
+                    <input #contaDestino
+                           matInput
+                           placeholder="Conta Corrente de Destino">
+                    <mat-error>A Conta Corrente de destino deve ser preenchida.</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width"
+                                appearance="fill">
+                    <mat-label>Valor</mat-label>
+                    <input #valorTransferencia
+                           matInput
+                           placeholder="Valor"
+                           currencyMask
+                           [options]="{
+                      prefix: 'R$ ',
+                      thousands: '.',
+                      decimal: ','
+                    }">
+                    <mat-error>O valor deve ser preenchido.</mat-error>
+                </mat-form-field>
+
+                <button mat-button
+                        (click)="transferir(contaDestino.value, valorTransferencia.value)">
+                    <mat-icon aria-hidden="true">done_outline</mat-icon>
+                </button>
+            </mat-expansion-panel>
+
+        </mat-accordion>
+
+    </form>
+
+</mat-card>

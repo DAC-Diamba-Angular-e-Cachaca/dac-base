@@ -1,0 +1,64 @@
+<mat-toolbar color="primary">
+  <button mat-button
+          [routerLink]="[homeRouterLink]">
+    <mat-icon>home</mat-icon>
+  </button>
+
+  <!-- Admin -->
+  <ng-container *ngIf="!!usuarioLogado && usuarioLogado?.tipoUsuario === tipoUsuario.Admin">
+    <button mat-button
+            routerLink="/admin/novo-gerente">
+      Cadastrar Gerente
+    </button>
+  </ng-container>
+
+  <!-- Gerente -->
+  <ng-container *ngIf="!!usuarioLogado && usuarioLogado.tipoUsuario === tipoUsuario.Gerente">
+    <button mat-button
+            routerLink="/gerente/consultar-clientes">Consultar Clientes</button>
+    <button mat-button
+            routerLink="/gerente/consultar-cliente">Consultar Cliente</button>
+    <button mat-button
+            routerLink="/gerente/consultar-top-clientes">Melhores Clientes</button>
+  </ng-container>
+
+  <!-- Cliente -->
+  <ng-container *ngIf="!!usuarioLogado && usuarioLogado?.tipoUsuario === tipoUsuario.Cliente">
+    <button mat-button
+            routerLink="/cliente/extrato">
+      Consultar Extrato
+    </button>
+  </ng-container>
+
+  <!-- Menu de Login -->
+  <span class="spacer"></span>
+  <button mat-icon-button
+          [matMenuTriggerFor]="menu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <!-- Deslogado -->
+    <ng-container *ngIf="!usuarioLogado">
+      <button mat-menu-item
+              routerLink="/login">
+        <mat-icon>login</mat-icon>
+        <span>Entre</span>
+      </button>
+      <button mat-menu-item
+              routerLink="/autocadastro">
+        <mat-icon>person_add</mat-icon>
+        <span>Cadastre-se</span>
+      </button>
+    </ng-container>
+    <!-- Logado -->
+    <ng-container *ngIf="!!usuarioLogado">
+      <button mat-menu-item
+              (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Sair</span>
+      </button>
+    </ng-container>
+  </mat-menu>
+</mat-toolbar>
+<router-outlet></router-outlet>

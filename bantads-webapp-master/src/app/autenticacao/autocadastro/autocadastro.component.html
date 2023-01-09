@@ -1,0 +1,271 @@
+<form #formAutoCadastro="ngForm" fxLayoutAlign="center center">
+  <mat-card class="mat-card-center" fxFlex="90">
+    <mat-card-title>AutoCadastro</mat-card-title>
+    <mat-card-content>
+      <mat-accordion multi>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Dados Pessoais</mat-panel-title>
+            <mat-panel-description fxLayoutAlign="end">
+              <mat-icon>person</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <li class="mat-form-field--inline">
+
+            <mat-form-field class="example-full-width" appearence="fill">
+              <mat-label>Nome</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                id="nome"
+                name="nome"
+                [(ngModel)]="cliente.nome"
+                minlength="6"
+                maxlength="64"
+                #nome="ngModel"
+                required
+              />
+              <mat-error *ngIf="nome.errors?.['minlength']">
+                Nome deve ter no mínimo 5 caracteres.
+              </mat-error>
+              <mat-error *ngIf="nome.errors?.['maxlength']">
+                Nome deve ter no máximo 64 caracteres.
+              </mat-error>
+              <mat-error *ngIf="nome.errors?.['required']">
+                Nome é obrigatório.
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearence="fill">
+              <mat-label>CPF</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                id="cpf"
+                name="cpf"
+                [(ngModel)]="cliente.cpf"
+                #cpf="ngModel"
+                mask="000.000.000-00"
+                required
+              />
+              <mat-error>CPF é obrigatório.</mat-error>
+            </mat-form-field>
+          </li>
+          <li class="mat-form-field--inline">
+            <mat-form-field appearence="fill">
+              <mat-label>Salário</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                id="salarioMensal"
+                name="salarioMensal"
+                [(ngModel)]="cliente.salario"
+                #salarioMensal="ngModel"
+                currencyMask
+                [options]="{
+                  prefix: 'R$ ',
+                  thousands: '.',
+                  decimal: ','
+                }"
+                required
+              />
+              <mat-error> Salário é obrigatório. </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearence="fill">
+              <mat-label>Email</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                id="email"
+                name="email"
+                [(ngModel)]="cliente.usuario.email"
+                #email="ngModel"
+                maxlength="32"
+                required
+              />
+              <mat-error>Email é obrigatório.</mat-error>
+            </mat-form-field>
+          </li>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion multi>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Endereço</mat-panel-title>
+            <mat-panel-description fxLayoutAlign="end">
+              <mat-icon>home</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-form-field class="example-full-width" appearence="fill">
+            <mat-label>Logradouro</mat-label>
+            <input
+              matInput
+              type="text"
+              class="form-control"
+              id="logradouro"
+              name="logradouro"
+              [(ngModel)]="cliente.endereco.logradouro"
+              #logradouro="ngModel"
+              minlength="5"
+              maxlength="50"
+              required
+            />
+            <mat-error *ngIf="logradouro.errors?.['maxlength']">
+              Logradouro deve ter no máximo 50 caracteres.
+            </mat-error>
+            <mat-error *ngIf="logradouro.errors?.['minlength']">
+              Logradouro deve ter no mínimo 5 caracteres.
+            </mat-error>
+            <mat-error *ngIf="logradouro.errors?.['required']">
+              Logradouro é obrigatório.
+            </mat-error>
+          </mat-form-field>
+          <li class="mat-form-field--inline">
+            <mat-form-field appearence="fill">
+              <mat-label>Número</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                id="numero"
+                name="numero"
+                [(ngModel)]="cliente.endereco.numero"
+                #numero="ngModel"
+                numerico
+                minimoValidator
+                valorMinimo="1"
+                required
+              />
+              <mat-error>Número é obrigatório.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearence="fill">
+              <mat-label>CEP</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                id="cep"
+                name="cep"
+                [(ngModel)]="cliente.endereco.cep"
+                #cep="ngModel"
+                mask="00000-000"
+                required
+              />
+              <mat-error>CEP é obrigatório.</mat-error>
+            </mat-form-field>
+          </li>
+          <li class="mat-form-field--inline">
+            <mat-form-field appearence="fill">
+              <mat-label>Complemento</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                id="complemento"
+                name="complemento"
+                [(ngModel)]="cliente.endereco.complemento"
+                #complemento="ngModel"
+                maxlength="32"
+              />
+              <mat-error *ngIf="complemento.errors?.['maxlength']">
+                Complemento deve ter no máximo 32 caracteres.
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearence="fill">
+              <mat-label>Bairro</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                id="bairro"
+                name="bairro"
+                [(ngModel)]="cliente.endereco.bairro"
+                #bairro="ngModel"
+                minlength="3"
+                maxlength="32"
+                required
+              />
+              <mat-error *ngIf="bairro.errors?.['maxlength']">
+                Bairro deve ter no máximo 32 caracteres.
+              </mat-error>
+              <mat-error *ngIf="bairro.errors?.['minlength']">
+                Bairro deve ter no mínimo 3 caracteres.
+              </mat-error>
+              <mat-error *ngIf="bairro.errors?.['required']">
+                Bairro é obrigatório.
+              </mat-error>
+            </mat-form-field>
+          </li>
+          <li class="mat-form-field--inline">
+            <mat-form-field appearence="fill">
+              <mat-label>Cidade</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                id="cidade"
+                name="cidade"
+                [(ngModel)]="cliente.endereco.cidade"
+                #cidade="ngModel"
+                minlength="3"
+                maxlength="32"
+                required
+              />
+              <mat-error *ngIf="cidade.errors?.['maxlength']">
+                Cidade deve ter no máximo 32 caracteres.
+              </mat-error>
+              <mat-error *ngIf="cidade.errors?.['minlength']">
+                Cidade deve ter no mínimo 3 caracteres.
+              </mat-error>
+              <mat-error *ngIf="cidade.errors?.['required']">
+                Cidade é obrigatório.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Estado</mat-label>
+              <mat-select
+                id="estado"
+                name="estado"
+                [(ngModel)]="cliente.endereco.estado"
+                #estado="ngModel"
+                required
+              >
+                <mat-option
+                  *ngFor="let estado of estados | keyvalue"
+                  [value]="estado.key"
+                >
+                  {{ estado.value }}
+                </mat-option>
+              </mat-select>
+              <mat-error>Estado é obrigatório.</mat-error>
+            </mat-form-field>
+          </li>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
+    <div class="button-row">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="cadastrar()"
+        [disabled]="!formAutoCadastro.form.valid"
+      >
+        Salvar
+      </button>
+      <button
+        mat-raised-button
+        [routerLink]="['/home']"
+      >
+        Voltar
+      </button>
+    </div>
+  </mat-card>
+</form>

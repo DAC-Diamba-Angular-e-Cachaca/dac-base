@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  bantads-orquestrador:
+    container_name: bantads-orquestrador
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 5005:8080
+    networks:
+      - bantads-net
+
+networks:
+  bantads-net:
+    driver: bridge
+    external: true
+    name: bantads-net

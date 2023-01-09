@@ -1,0 +1,42 @@
+<mat-dialog-content>
+    <div fxLayout="row">
+        <div fxFlex="100">
+            <mat-form-field class="example-full-width" appearance="fill" >
+                <mat-label>Nome</mat-label>
+                <input placeholder="Nome" matInput type="text" [(ngModel)]="data.nome" #nome="ngModel" disabled>
+            </mat-form-field>
+        </div>
+    </div>
+    <div fxLayout="row">
+        <div fxFlex="48" style="margin-right: 2%;">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input placeholder="Email" matInput type="text" [(ngModel)]="data.usuario.email" #email="ngModel" disabled>
+            </mat-form-field>
+        </div>
+        <div fxFlex="50" >
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>CPF</mat-label>
+                <input placeholder="Nome" matInput type="text" [(ngModel)]="data.cpf" #cpf="ngModel" disabled>
+            </mat-form-field>
+        </div>
+    </div>
+    <div fxLayout="row">
+        <div fxFlex="30">
+            <p class="descricao">Quantidade de Clientes:</p>
+            <p class="descricao">Total Saldo Positivo:</p>
+            <p class="descricao">Total Saldo Negativo:</p>
+        </div>
+        <div fxFlex="15"> 
+            <p>{{ data.quantidadeContas }}</p>
+            <p>{{ data.saldoPositivo | currency: 'R$' }}</p>
+            <p>{{ data.saldoNegativo | currency: 'R$' }}</p>
+        </div>
+        <div fxFlex fxLayout="column" fxLayoutAlign="center end">
+            <mat-dialog-actions >
+                <button mat-button mat-dialog-close>Fechar</button>
+            </mat-dialog-actions>
+        </div>
+    </div>
+</mat-dialog-content>
+

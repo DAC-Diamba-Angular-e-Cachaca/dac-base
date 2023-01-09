@@ -1,0 +1,20 @@
+<h1 class="title">Pesquisar Cliente</h1>
+<div fxLayout="row"
+     style="margin-left: 5%">
+    <mat-form-field fxFlex="50">
+        <input cpf
+               placeholder="Digite o CPF"
+               matInput
+               type="search"
+               #cpf>
+    </mat-form-field>
+    <button class="search-button"
+            mat-mini-fab
+            color="primary"
+            title="Pesquisar"
+            alt="Pesquisar"
+            (click)="buscarPorCpf(cpf.value)"
+            [disabled]="cpf.value.length < 14">
+        <mat-icon>search</mat-icon>
+    </button>
+</div>

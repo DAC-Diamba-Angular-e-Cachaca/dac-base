@@ -1,0 +1,64 @@
+@import "~ngx-toastr/toastr";
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.ngx-toastr {
+  margin-left: 0;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.simple-form {
+  padding: 500;
+}
+
+.mat-card-center {
+  margin-top: 50px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+.button-grid {
+  margin-left: 3%;
+}
+
+.cell10 {
+  width: 10%;
+}
+
+.cell15 {
+  width: 16%;
+}
+
+.cell30 {
+  width: 30%;
+}
+
+.cell30end {
+  width: 30%;
+  text-align: right;
+}
+
+.title {
+  margin-left: 5%;
+  margin-top: 3.5%;
+  margin-bottom: 2%;
+  text-transform: capitalize;
+  font-size: 32px;
+  font-family: "Roboto", "Trebuchet MS", "Tahoma", "Verdana", "Arial",
+    "sans-serif";
+  font-weight: 400;
+}

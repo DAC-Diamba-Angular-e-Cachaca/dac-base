@@ -1,0 +1,78 @@
+<h1 class="title"
+    *ngIf="novoGerente">Novo Gerente</h1>
+<h1 class="title"
+    *ngIf="!novoGerente">Editar Gerente</h1>
+<div fxLayout="row"
+     fxLayoutAlign="center">
+    <form #formGerente="ngForm"
+          class="example-form"
+          fxFlex="80">
+        <div>
+            <mat-form-field class="example-full-width"
+                            appearance="fill"
+                            fxFlex="100">
+                <mat-label>Nome</mat-label>
+                <input placeholder="Nome"
+                       matInput
+                       type="text"
+                       id="nome"
+                       name="nome"
+                       [(ngModel)]="gerente.nome"
+                       #nome="ngModel"
+                       required>
+                <mat-error>O nome deve ser preenchido.</mat-error>
+            </mat-form-field>
+        </div>
+        <div *ngIf="novoGerente">
+            <mat-form-field class="example-full-width"
+                            appearance="fill">
+                <mat-label>Email</mat-label>
+                <input placeholder="Email"
+                       matInput
+                       type="text"
+                       id="email"
+                       name="email"
+                       [(ngModel)]="gerente.usuario.email"
+                       #email="ngModel"
+                       required>
+                <mat-error>O nome deve ser preenchido.</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width"
+                            appearance="fill">
+                <mat-label>CPF</mat-label>
+                <input cpf
+                       maxlength="14"
+                       minlength="14"
+                       placeholder="CPF"
+                       matInput
+                       type="text"
+                       id="cpf"
+                       name="cpf"
+                       [(ngModel)]="gerente.cpf"
+                       #cpf="ngModel"
+                       required>
+                <mat-error>O CPF deve ser preenchido.</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="pull-right">
+            <button mat-stroked-button
+                    (click)="salvar()"
+                    [disabled]="!formGerente.form.valid"
+                    class="button">
+                <mat-icon *ngIf="!loading"
+                          aria-hidden="true"
+                          aria-hidden="true">save</mat-icon>
+                <mat-icon *ngIf="loading"
+                          aria-hidden="true">replay</mat-icon>
+                Salvar
+            </button>
+            <button mat-stroked-button
+                    color="primary"
+                    [routerLink]="['/admin/home']">
+                Voltar
+            </button>
+        </div>
+    </form>
+</div>

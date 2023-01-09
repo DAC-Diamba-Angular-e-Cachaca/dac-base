@@ -1,0 +1,37 @@
+table {
+  width: 100%;
+}
+
+.button-grid {
+  margin-left: 3%;
+}
+
+.cell20 {
+  width: 20%;
+  text-align: start;
+}
+
+.cell15 {
+  width: 16%;
+  text-align: center;
+}
+
+.cell20end {
+  width: 20%;
+  text-align: right;
+}
+
+.aprove-icon {
+  color: green;
+}
+
+.title {
+  margin-left: 5%;
+  margin-top: 3.5%;
+  margin-bottom: 2%;
+  text-transform: capitalize;
+  font-size: 32px;
+  font-family: "Roboto", "Trebuchet MS", "Tahoma", "Verdana", "Arial",
+    "sans-serif";
+  font-weight: 400;
+}

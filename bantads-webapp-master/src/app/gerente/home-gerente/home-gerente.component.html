@@ -1,0 +1,64 @@
+<h1 class="title">Pedidos de Autocadastro</h1>
+
+<div fxLayout="row"
+     fxLayoutAlign="center">
+    <div fxFlex="90">
+        <table mat-table
+               [dataSource]="clientesPendentes"
+               class="mat-elevation-z8">
+
+            <div matColumnDef="nome">
+                <th mat-header-cell
+                    *matHeaderCellDef> Nome </th>
+                <td mat-cell
+                    *matCellDef="let element"> {{ element.nome }} </td>
+            </div>
+
+            <div matColumnDef="cpf">
+                <th mat-header-cell
+                    *matHeaderCellDef
+                    class="cell15"> CPF </th>
+                <td mat-cell
+                    *matCellDef="let element"
+                    class="cell15"> {{ element.cpf }} </td>
+            </div>
+
+            <div matColumnDef="salarioMensal">
+                <th mat-header-cell
+                    *matHeaderCellDef
+                    class="cell20"> Salário Mensal </th>
+                <td mat-cell
+                    *matCellDef="let element"
+                    class="cell20"> {{ element.salario | currency: 'R$' }} </td>
+            </div>
+
+            <div matColumnDef="acoes">
+                <th mat-header-cell
+                    *matHeaderCellDef
+                    class="cell20end"></th>
+                <td mat-cell
+                    *matCellDef="let element"
+                    class="cell20end">
+                    <button mat-stroked-button
+                            class="aprove-icon"
+                            (click)="aprovar($event, element)">
+                        <mat-icon>done</mat-icon>
+                    </button>
+                    <button mat-stroked-button
+                            class="button-grid"
+                            color="warn"
+                            title="Remover"
+                            alt="Remover"
+                            (click)="reprovar($event, element)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </div>
+
+            <tr mat-header-row
+                *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row
+                *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>
